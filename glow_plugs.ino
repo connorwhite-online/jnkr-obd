@@ -3,9 +3,21 @@
 void.setup() {
   // Initialize the library
   Serial.begin(9600);
-  Serial.println("Fire it up");
+  
+  // Temperature sensor port
+
+  // Relay port
+
 }
 
 void.loop() {
-  // Do something every loop
+  // If temp is at or below 70 degrees, turn on the relay
+    int temp = temperatureSensor.read();
+    int threshold = 70;
+
+  if (temp <= threshold) {
+    digitalWrite(relay, HIGH);
+  } else {
+    digitalWrite(relay, LOW);
+  }
 }
